@@ -49,25 +49,40 @@ function Person(first, last, age, gender, interests, animal) {
 // var person2 = new Person('Sarah', 'J. Parker', 43, 'female', ['Acting', 'Singing', 'Cooking'], 'cat');
 // var person3 = new Person('Anura', 'Ignis', 45000, 'genderless', ['terraforming'], 'Quetzoquatl');
 
-var nome = prompt('Qual seu nome?')
-var sobreNome = prompt('Qual seu sobrenome?')
-var idade = prompt('Qual sua idade?')
-var sexo = prompt('Qual seu genero')
-var hobbies = []
-while (hobbies.length >= 0) {
+function coletarDados(){var nome = prompt('Qual seu nome?')
+    var sobreNome = prompt('Qual seu sobrenome?')
+    var idade = prompt('Qual sua idade?')
+    var sexo = prompt('Qual seu genero')
+    var hobbies = []
+    while (hobbies.length >= 0) {
     if (hobbies.length == 0) {
-        let x = prompt('Qual o seu Hobby?')
-        hobbies.push(x)
+        let primeiroHobbie = prompt('Qual o seu Hobby?')
+        hobbies.push(primeiroHobbie)
     }else if (hobbies.length > 0) {
         if(confirm('Tem mais algum')){ 
-        let y = prompt('Qual o outro?')
-        hobbies.push(y)}else{break}
+        let demaisHobbies = prompt('Qual o outro?')
+        hobbies.push(demaisHobbies)}
+        else{
+            break
+        }
     }else{
         break
+        }
+    }
+    var animal = prompt('Qual seu animal favorito?')
+    persona.push(new Person(nome, sobreNome, idade, sexo, hobbies, animal))
+}
+
+
+
+var persona = []
+
+function pesquisa(){
+    let x =prompt('digite o primeiro nome')
+    for (let i = 0; i <= persona.length; i++) {
+        if (persona[i].name.includes(x)){
+            alert(persona[i].name) 
+    }
+    
     }
 }
-var animal = prompt('Qual seu animal favorito?')
-
-var persona = new Person(nome, sobreNome, idade, sexo, hobbies, animal)
-
-persona.bio()
